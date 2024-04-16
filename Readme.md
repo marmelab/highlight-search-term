@@ -39,8 +39,8 @@ import { highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-sear
 const search = document.getElementById("search");
 search.addEventListener("input", () => {
     highlightSearchTerm({
-    search: search.value,
-    selector: ".content"
+        search: search.value,
+        selector: ".content",
     });
 });
 </script>
@@ -53,8 +53,8 @@ import { highlightSearchTerm } from "highlight-search-term";
 const search = document.getElementById("search");
 search.addEventListener("input", () => {
     highlightSearchTerm({
-    search: search.value,
-    selector: ".content"
+        search: search.value,
+        selector: ".content",
     });
 });
 ```
