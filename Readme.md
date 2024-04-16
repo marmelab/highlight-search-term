@@ -2,9 +2,9 @@
 
 Highlight search term in a page. Vanilla JS, compatible with frontend frameworks (React, Vite, Angular, etc). 
 
-Does not modify the DOM. Relies on the browser's [CSS Custom Highlight API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API) ([limited browser support](https://caniuse.com/?search=CSS.Highlights)).
+Does not modify the DOM. Relies on the browser's [CSS Custom Highlight API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API) ([not supported by Firefox yet](https://caniuse.com/?search=CSS.Highlights)).
 
-This is not a syntax highlighter API. It highlights text in a page based on a search term.
+**Note**: This is not a syntax highlighter library. It highlights text in a page based on a search term.
 
 ## Usage
 
@@ -55,6 +55,7 @@ If you use a frontend framework like React, you can use it in a `useEffect` hook
 
 ```jsx
 import { useEffect, useState } from "react";
+import { highlightSearchTerm } from "highlight-search-term";
 
 export default function App() {
   const [search, setSearch] = useState("");
