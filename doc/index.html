@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>highlight-search-term</title>
+    <style>
+      ::highlight(search) {
+        background-color: yellow;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>highlight-search-term</h1>
+    <p>
+      highlight-search-term is a simple JavaScript library that highlights
+      search terms in a text.
+    </p>
+    <h2>Usage</h2>
+    <pre><code class="language-javascript">highlightSearchTerm('lorem', '.content');</code></pre>
+    <h2>Example</h2>
+    <p>
+      Use the following search input to highlight the search term in the content
+      below:
+    </p>
+    <div>
+      <input type="text" id="search" />
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </div>
+  </body>
+  <script type="module">
+    import { default as highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.8/src/index.js";
+    const search = document.getElementById("search");
+    search.addEventListener("input", () => {
+      highlightSearchTerm({ search: search.value, selector: ".content p" });
+    });
+  </script>
+</html>

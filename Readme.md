@@ -8,16 +8,23 @@ Does not modify the DOM. Relies on the browser's [CSS Custom Highlight API](http
 
 The library exports a single function that expects a search term and a CSS selector of the element to search in.
 
-```js
-import highlightSearchTerm from 'highlight-search-term';
-
-highlightSearchTerm('lorem', '.element-to-search-in');
+```html
+<script type="module">
+    import { default as highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.8/src/index.js";
+    const search = document.getElementById("search");
+    search.addEventListener("input", () => {
+      highlightSearchTerm({
+        search: search.value,
+        selector: ".content p"
+      });
+    });
+</script>
 ```
 
 This creates a highlight range named "search" that you can highlight with CSS, e.g.:
 
 ```css
-:highlight(search): {
+::highlight(search) {
     background-color: yellow;
     color: black;
 }

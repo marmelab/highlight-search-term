@@ -1,4 +1,9 @@
 declare module "highlight-search-term" {
-  function highlightSearchTerm(searchTerm: string, text: string): void;
+  interface HighlightSearchTermParams {
+    search?: string;
+    selector: string;
+    customHighlightName?: string;
+  }
+  function highlightSearchTerm(params: HighlightSearchTermParams): void;
   export = highlightSearchTerm;
 }

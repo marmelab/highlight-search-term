@@ -1,8 +1,24 @@
-// debounce allows to delay the highlight, which allows the composition to render before the highlight
-const highlightSearchTerm = (search, selector, options = {}) => {
+/**
+ * Highlight search term in the selected elements
+ *
+ * @example
+ * import { default as highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.8/src/index.js";
+ * const search = document.getElementById("search");
+ * search.addEventListener("input", () => {
+ *   highlightSearchTerm({ search: search.value, selector: ".content p" });
+ * });
+ */
+const highlightSearchTerm = ({
+  search,
+  selector,
+  customHighlightName = "search",
+}) => {
+  if (!selector) {
+    throw new Error("The selector argument is required");
+  }
+
   if (!CSS.highlights) return; // disable feature on Firefox as it does not support CSS Custom Highlight API
 
-  const { customHighlightName = "search" } = options;
   // @ts-ignore
   CSS.highlights.delete(customHighlightName);
   if (!search) {
