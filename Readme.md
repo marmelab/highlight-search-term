@@ -27,7 +27,7 @@ You can use it directly in your HTML:
 
 ```html
 <script type="module">
-import { highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.9/src/index.js";
+import { highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@1.0.0/src/index.js";
 const search = document.getElementById("search");
 search.addEventListener("input", () => {
     highlightSearchTerm({

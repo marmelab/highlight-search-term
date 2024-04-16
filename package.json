@@ -1,6 +1,6 @@
 {
   "name": "highlight-search-term",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Highlight search term in a page. Vanilla JS, compatible with frontend frameworks (React, Vite, Angular, etc).",
   "repository": "marmelab/highlight-search-term",
   "homepage": "https://marmelab.com/highlight-search-term/",
