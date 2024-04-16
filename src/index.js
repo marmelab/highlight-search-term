@@ -19,12 +19,13 @@ const highlightSearchTerm = ({
 
   if (!CSS.highlights) return; // disable feature on Firefox as it does not support CSS Custom Highlight API
 
-  // @ts-ignore
+  // remove previous highlight
   CSS.highlights.delete(customHighlightName);
   if (!search) {
     // nothing to highlight
     return;
   }
+  // find all text nodes containing the search term
   const ranges = [];
   const elements = document.querySelectorAll(selector);
   Array.from(elements).map((element) => {
@@ -35,9 +36,8 @@ const highlightSearchTerm = ({
     });
   });
   if (ranges.length === 0) return;
-  const highlight = new Highlight(...ranges); // eslint-disable-line no-undef
   // create a CSS highlight that can be styled with the ::highlight(search) pseudo-element
-  // @ts-ignore
+  const highlight = new Highlight(...ranges);
   CSS.highlights.set(customHighlightName, highlight);
 };
 
