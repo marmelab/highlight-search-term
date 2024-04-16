@@ -1,0 +1,14 @@
+{
+  "name": "highlight-search-term",
+  "version": "0.0.5",
+  "description": "Highlight search term in a page. Vanilla JS, compatible with frontend frameworks (React, Vite, Angular, etc).",
+  "repository": "marmelab/highlight-search-term",
+  "homepage": "https://github.com/marmelab/highlight-search-term",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": ["Francois Zaninotto"],
+  "license": "MIT"
+}
