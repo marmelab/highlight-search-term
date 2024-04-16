@@ -5,5 +5,5 @@ declare module "highlight-search-term" {
     customHighlightName?: string;
   }
   function highlightSearchTerm(params: HighlightSearchTermParams): void;
-  export = highlightSearchTerm;
+  export { highlightSearchTerm };
 }

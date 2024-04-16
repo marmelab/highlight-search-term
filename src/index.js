@@ -2,10 +2,10 @@
  * Highlight search term in the selected elements
  *
  * @example
- * import { default as highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.8/src/index.js";
+ * import { highlightSearchTerm } from "highlight-search-term";
  * const search = document.getElementById("search");
  * search.addEventListener("input", () => {
- *   highlightSearchTerm({ search: search.value, selector: ".content p" });
+ *   highlightSearchTerm({ search: search.value, selector: ".content" });
  * });
  */
 const highlightSearchTerm = ({
@@ -27,14 +27,30 @@ const highlightSearchTerm = ({
   }
   const ranges = [];
   const elements = document.querySelectorAll(selector);
-  Array.from(elements).forEach((element) => {
-    ranges.push(...getRangesForSearchTermInElement(element, search));
+  Array.from(elements).map((element) => {
+    getTextNodesInElementContainingText(element, search).forEach((node) => {
+      ranges.push(
+        ...getRangesForSearchTermInElement(node.parentElement, search)
+      );
+    });
   });
   if (ranges.length === 0) return;
   const highlight = new Highlight(...ranges); // eslint-disable-line no-undef
   // create a CSS highlight that can be styled with the ::highlight(search) pseudo-element
   // @ts-ignore
   CSS.highlights.set(customHighlightName, highlight);
+};
+
+const getTextNodesInElementContainingText = (element, text) => {
+  const nodes = [];
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.textContent?.toLowerCase().includes(text)) {
+      nodes.push(node);
+    }
+  }
+  return nodes;
 };
 
 const getRangesForSearchTermInElement = (element, search) => {
@@ -53,4 +69,4 @@ const getRangesForSearchTermInElement = (element, search) => {
   return ranges;
 };
 
-export default highlightSearchTerm;
+export { highlightSearchTerm };

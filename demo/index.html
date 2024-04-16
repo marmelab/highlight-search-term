@@ -2,6 +2,17 @@
   <head>
     <title>highlight-search-term</title>
     <style>
+      body {
+        font-family: Roboto, Open Sans, sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
       ::highlight(search) {
         background-color: yellow;
         color: black;
@@ -9,30 +20,90 @@
     </style>
   </head>
   <body>
-    <h1>highlight-search-term</h1>
-    <p>
-      highlight-search-term is a simple JavaScript library that highlights
-      search terms in a text.
-    </p>
-    <h2>Usage</h2>
-    <pre><code class="language-javascript">highlightSearchTerm('lorem', '.content');</code></pre>
-    <h2>Example</h2>
-    <p>
-      Use the following search input to highlight the search term in the content
-      below:
-    </p>
-    <div>
-      <input type="text" id="search" />
-    </div>
-    <div class="content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <div class="container">
+      <h1>highlight-search-term</h1>
+      <p>
+        A JavaScript library that highlights search terms in a page without
+        modifying the DOM.
+      </p>
+      <p>
+        <a href="https://github.com/marmelab/highlight-search-term">GitHub</a> -
+        <a href="https://www.npmjs.com/package/highlight-search-term">Npm</a>
+      </p>
+      <h2>Usage</h2>
+      <pre><code class="language-javascript">import { highlightSearchTerm } from 'highlight-search-term';
+
+highlightSearchTerm('lorem', '.content');
+</code></pre>
+      <h2>Example</h2>
+      <p>
+        Use the following search input to highlight the search term in the
+        content below:
+      </p>
+      <div>
+        <input type="text" id="search" value="lorem" />
+      </div>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac felis
+          eget est consequat sagittis nec commodo tellus. Donec aliquam lacus
+          vehicula urna scelerisque gravida sed ut felis. Cras eget vehicula ex.
+          Nullam sed justo id leo euismod faucibus. Vestibulum tincidunt in
+          felis nec rutrum. In lobortis dictum augue non luctus. Quisque egestas
+          neque at maximus placerat. Duis ornare dictum suscipit. Vivamus
+          molestie est et ultricies finibus.
+        </p>
+
+        <p>
+          Phasellus id magna in enim vulputate luctus. Curabitur nec enim non
+          nisl vulputate cursus. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Vestibulum eget mi malesuada, dapibus magna ut,
+          aliquam ipsum. Donec eleifend hendrerit nibh, a euismod neque ultrices
+          hendrerit. Aenean id ipsum sit amet quam iaculis posuere. Class aptent
+          taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+          himenaeos. Aenean malesuada ultrices sapien quis pulvinar. Interdum et
+          malesuada fames ac ante ipsum primis in faucibus. Nunc non lacus eget
+          nibh finibus ullamcorper fringilla vel sem. Duis sollicitudin sem ac
+          libero imperdiet, nec laoreet erat scelerisque. Pellentesque habitant
+          morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas. Vestibulum nec ligula vulputate nisi venenatis rutrum.
+        </p>
+
+        <p>
+          Aenean eget bibendum urna. Quisque eget porttitor tellus, ac tempor
+          neque. Vivamus eleifend, eros non suscipit ultricies, felis mi cursus
+          ex, dignissim convallis tellus est sed sem. Duis est nisl, tincidunt
+          vel enim nec, gravida porttitor ipsum. Maecenas dictum id mi non
+          condimentum. Sed at metus enim. Nullam vel tristique justo, ac porta
+          urna. Aliquam ullamcorper fringilla vehicula. Praesent ac sem euismod,
+          scelerisque ligula eu, venenatis felis. Fusce efficitur metus vel
+          magna fringilla convallis et a ex. Nulla maximus libero turpis, ac
+          euismod nisl facilisis sit amet. Quisque faucibus consectetur laoreet.
+          Etiam at vulputate mi. Pellentesque sed lectus rhoncus, rhoncus sem
+          sit amet, faucibus neque. Aliquam non auctor libero, vehicula
+          hendrerit tortor.
+        </p>
+      </div>
+      <h2>Limitations</h2>
+      <p>
+        This library uses the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API"
+          >CSS Custom Highlight API</a
+        >, which works on all evergreen browsers except Firefox.
+      </p>
+      <h2>License</h2>
+      <p>MIT</p>
     </div>
   </body>
   <script type="module">
-    import { default as highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.8/src/index.js";
+    import { highlightSearchTerm } from "https://cdn.jsdelivr.net/npm/highlight-search-term@0.0.9/src/index.js";
     const search = document.getElementById("search");
     search.addEventListener("input", () => {
-      highlightSearchTerm({ search: search.value, selector: ".content p" });
+      highlightSearchTerm({ search: search.value, selector: ".content" });
     });
+    setTimeout(() => {
+      highlightSearchTerm({ search: search.value, selector: ".content" });
+    }, 100);
   </script>
 </html>
