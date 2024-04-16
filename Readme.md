@@ -6,6 +6,12 @@ Does not modify the DOM. Relies on the browser's [CSS Custom Highlight API](http
 
 **Note**: This is not a syntax highlighter library. It highlights text in a page based on a search term.
 
+## Installation
+
+```sh
+npm install highlight-search-term
+```
+
 ## Usage
 
 The library exports a single function that expects a search term and a CSS selector of the element to search in.
