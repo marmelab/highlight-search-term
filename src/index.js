@@ -42,11 +42,12 @@ const highlightSearchTerm = ({
 };
 
 const getTextNodesInElementContainingText = (element, text) => {
+  const lowerCaseText = text.toLowerCase();
   const nodes = [];
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
   let node;
   while ((node = walker.nextNode())) {
-    if (node.textContent?.toLowerCase().includes(text.toLowerCase())) {
+    if (node.textContent?.toLowerCase().includes(lowerCaseText)) {
       nodes.push(node);
     }
   }
@@ -55,11 +56,12 @@ const getTextNodesInElementContainingText = (element, text) => {
 
 const getRangesForSearchTermInElement = (element, search) => {
   const ranges = [];
+  const lowerCaseSearch = search.toLowerCase();
   if (!element.firstChild) return ranges;
   const text = element.textContent?.toLowerCase() || "";
   let start = 0;
   let index;
-  while ((index = text.indexOf(search.toLowerCase(), start)) >= 0) {
+  while ((index = text.indexOf(lowerCaseSearch, start)) >= 0) {
     const range = new Range();
     range.setStart(element.firstChild, index);
     range.setEnd(element.firstChild, index + search.length);
