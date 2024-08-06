@@ -85,6 +85,36 @@ export default function App() {
 }
 ```
 
+**Note**: Due to how React and [Range]() work, avoid elements that combine static texts and variables:
+
+```diff
+export default function MyComponent({ text }: { text: string }) {
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    highlightSearchTerm({ search, selector: ".content" });
+  }, [search]);
+  return (
+    <div>
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+-      <div className="content">
+-        Text: {text}
+-      </div>
++      <div>
++        Text: <span className="content">{text}</span>
++      </div>
+    </div>
+  );
+}
+```
+
+## Troubleshooting
+
+If you get errors similar to `DOMException: Failed to execute 'setEnd' on 'Range': The offset 11 is larger than the node's length (5).`, make sure you don't mix static and dynamic texts. See the tip in previous section.
+
 ## License
 
 MIT, courtesy of [Marmelab](https://marmelab.com)

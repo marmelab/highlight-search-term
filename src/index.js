@@ -27,14 +27,18 @@ const highlightSearchTerm = ({
   }
   // find all text nodes containing the search term
   const ranges = [];
-  const elements = document.querySelectorAll(selector);
-  Array.from(elements).map((element) => {
-    getTextNodesInElementContainingText(element, search).forEach((node) => {
-      ranges.push(
-        ...getRangesForSearchTermInElement(node.parentElement, search)
-      );
+  try {
+    const elements = document.querySelectorAll(selector);
+    Array.from(elements).map((element) => {
+      getTextNodesInElementContainingText(element, search).forEach((node) => {
+        ranges.push(
+          ...getRangesForSearchTermInElement(node.parentElement, search)
+        );
+      });
     });
-  });
+  } catch (error) {
+    console.error(error);
+  }
   if (ranges.length === 0) return;
   // create a CSS highlight that can be styled with the ::highlight(search) pseudo-element
   const highlight = new Highlight(...ranges);
