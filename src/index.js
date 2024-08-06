@@ -37,10 +37,6 @@ const highlightSearchTerm = ({
       });
     });
   } catch (error) {
-    // When combining static text with dynamic text in React, the textContent property may be different from the wholeText property.
-    // wholeText will contains both static and dynamic text, while textContent will only contain the static text.
-    // The Range object in chromium browsers seems to be using the textContent and it could throw
-    // an error when we did detect the search term.
     console.error(error);
   }
   if (ranges.length === 0) return;
