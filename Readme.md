@@ -113,7 +113,7 @@ export default function MyComponent({ text }: { text: string }) {
 
 ## Troubleshooting
 
-If you get errors similar to `DOMException: Failed to execute 'setEnd' on 'Range': The offset 11 is larger than the node's length (5).`, make sure you don't mix static and dynamic texts. See the tip in previous section.
+If you see errors in the console similar to `DOMException: Failed to execute 'setEnd' on 'Range': The offset 11 is larger than the node's length (5).`, make sure you don't mix static and dynamic texts. See the note above for an example.
 
 ## License
 
