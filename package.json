@@ -6,7 +6,6 @@
   "homepage": "https://marmelab.com/highlight-search-term/",
   "main": "src/index.js",
   "types": "src/index.d.ts",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

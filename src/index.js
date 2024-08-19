@@ -81,4 +81,4 @@ const getRangesForSearchTermInElement = (element, search) => {
   return ranges;
 };
 
-export { highlightSearchTerm };
+module.exports = { highlightSearchTerm };
