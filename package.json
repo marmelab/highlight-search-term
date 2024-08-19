@@ -2,7 +2,10 @@
   "name": "highlight-search-term",
   "version": "1.0.3",
   "description": "Highlight search term in a page. Vanilla JS, compatible with frontend frameworks (React, Vite, Angular, etc).",
-  "repository": "marmelab/highlight-search-term",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marmelab/highlight-search-term.git"
+  },
   "homepage": "https://marmelab.com/highlight-search-term/",
   "main": "src/index.js",
   "types": "src/index.d.ts",
