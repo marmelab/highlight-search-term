@@ -9,6 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "authors": ["Francois Zaninotto"],
+  "authors": [
+    "Francois Zaninotto"
+  ],
   "license": "MIT"
 }
