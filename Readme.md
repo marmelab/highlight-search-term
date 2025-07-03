@@ -4,7 +4,7 @@ Highlight search term in a page. Vanilla JS, compatible with frontend frameworks
 
 [![Highlight Search Term](./assets/screenshot.png)](https://marmelab.com/highlight-search-term/)
 
-This library does not modify the DOM. It relies on the browser's [CSS Custom Highlight API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API) ([not supported by Firefox yet](https://caniuse.com/?search=CSS.Highlights)). See the motivation and implementation challenges in the blog post "[Highlight Search Terms In Page Content](https://marmelab.com/blog/2024/04/23/highlight-search-query.html)".
+This library does not modify the DOM. It relies on the browser's [CSS Custom Highlight API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Custom_Highlight_API). See the motivation and implementation challenges in the blog post "[Highlight Search Terms In Page Content](https://marmelab.com/blog/2024/04/23/highlight-search-query.html)".
 
 **Note**: This is not a syntax highlighter library. It highlights text in a page based on a search term.
 
